@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Resetting default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(206, 196, 196);
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  background-color: pink;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar ul li {
+  /* margin: 15px 0; */
+  padding: 10px;
+}
+
+.sidebar ul li:hover {
+  background-color: #1e1e1e15;
+  cursor: pointer;
+}
+
+.sidebar ul li a {
+  /* color: #fff; */
+  color: black;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 250px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-bottom: 2px solid #ddd;
+}
+
+.header h1 {
+  font-size: 1.8em;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-info span {
+  margin-right: 15px;
+}
+
+.user-info button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.user-info button:hover {
+  background-color: #0056b3;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 200px;
+}
+
+.card h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 2em;
+  color: black;
+}
+
+.main-content > h1 {
+  font-size: 80px;
+  text-align: center;
+  margin-top: 40px;
+  font-style: italic;
+  font-family: "Noto Sans", sans-serif;
+  text-shadow: 5px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.button {
+  cursor: pointer;
+  background-color: white;
+  padding: 7px;
+}
