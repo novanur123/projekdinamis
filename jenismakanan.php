@@ -1,3 +1,8 @@
+<?php
+require_once "./koneksi.php";
+
+$jenis_makanans = $db->query('SELECT * FROM jenismakanan');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=<?= time() ?>" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -17,14 +22,14 @@
       <br>
       Dashboard
       <ul>
-        <li><a href="#">Dashboard</a></li>
+        <li><a href="./">Dashboard</a></li>
       </ul>
       <br>
       <br>
       Data
       <ul>
-        <li><a href="#">Jenis Makanan</a></li>
-        <li><a href="#">Tambah Data</a></li>
+        <li><a href="./jenismakanan.php">Jenis Makanan</a></li>
+        <li><a href="./tambahdata.php">Tambah Data</a></li>
 
       </ul>
     </aside>
@@ -37,118 +42,16 @@
         </div>
       </header>
       <section class="content">
-
-
-        <table align="center" cellspacing="20px">
-          <tr>
-            <td><img src="../images/naspad.jpeg" width="200" height="200" /></td>
-            <td><img src="../images/seblak.jpeg" width="200" height="200" /></td>
-            <td>
-              <img src="../images/misro.jpeg" width="200" height="200" />
-            </td>
-            <td><img src="../images/lotek.jpeg" width="200" height="200" /></td>
-            <td>
-              <img src="../images/awug (2).jpeg" width="200" height="200" />
-            </td>
-          </tr>
-          <tr style="color: black" align="center">
-            <td>Nasi Liwet</td>
-            <td>Seblak</td>
-            <td>Misro</td>
-            <td>Lotek</td>
-            <td>Awug</td>
-          </tr>
-
-          <tr align="center">
-            <td>
-              <a href="nasiliwet.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="seblak.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="misro.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="lotek.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="awug.html"><button class="button">Buka</button></a>
-            </td>
-          </tr>
-          <tr>
-            <td><img src="../images/naspad.jpeg" width="200" height="200" /></td>
-            <td><img src="../images/seblak.jpeg" width="200" height="200" /></td>
-            <td>
-              <img src="../images/misro.jpeg" width="200" height="200" />
-            </td>
-            <td><img src="../images/lotek.jpeg" width="200" height="200" /></td>
-            <td>
-              <img src="../images/awug (2).jpeg" width="200" height="200" />
-            </td>
-          </tr>
-          <tr style="color: black" align="center">
-            <td>Nasi Liwet</td>
-            <td>Seblak</td>
-            <td>Misro</td>
-            <td>Lotek</td>
-            <td>Awug</td>
-          </tr>
-
-          <tr align="center">
-            <td>
-              <a href="nasiliwet.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="seblak.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="misro.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="lotek.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="awug.html"><button class="button">Buka</button></a>
-            </td>
-          </tr>
-          <tr>
-            <td><img src="../images/naspad.jpeg" width="200" height="200" /></td>
-            <td><img src="../images/seblak.jpeg" width="200" height="200" /></td>
-            <td>
-              <img src="../images/misro.jpeg" width="200" height="200" />
-            </td>
-            <td><img src="../images/lotek.jpeg" width="200" height="200" /></td>
-            <td>
-              <img src="../images/awug (2).jpeg" width="200" height="200" />
-            </td>
-          </tr>
-          <tr style="color: black" align="center">
-            <td>Nasi Liwet</td>
-            <td>Seblak</td>
-            <td>Misro</td>
-            <td>Lotek</td>
-            <td>Awug</td>
-          </tr>
-
-          <tr align="center">
-            <td>
-              <a href="nasiliwet.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="seblak.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="misro.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="lotek.html"><button class="button">Buka</button></a>
-            </td>
-            <td>
-              <a href="awug.html"><button class="button">Buka</button></a>
-            </td>
-          </tr>
-        </table>
+        <div class="list-makanan">
+          <?php while ($mkaanan = $jenis_makanans->fetch_assoc()) { ?>
+            <div class="makanan-item">
+              <img src="uploads/<?= $mkaanan['image'] ?>" alt="XXXX">
+              <h3><?= $mkaanan['name'] ?></h3>
+              <a href="lihat.php?id=<?= $mkaanan['id'] ?>" class="button">Buka</a>
+            </div>
+          <?php } ?>
+        </div>
+      </section>
     </main>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

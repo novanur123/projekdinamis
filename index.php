@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=<?= time() ?>" />
 </head>
 
 <body>
@@ -23,7 +23,7 @@
       Data
       <ul>
         <li><a href="./jenismakanan.php">Jenis Makanan</a></li>
-        <li><a href="#">Tambah Data</a></li>
+        <li><a href="./tambahdata.php">Tambah Data</a></li>
 
       </ul>
     </aside>
