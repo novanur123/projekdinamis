@@ -38,7 +38,8 @@ $jenis_makanans = $db->query('SELECT * FROM jenismakanan');
         <h1>Jenis Makanan</h1>
         <div class="user-info">
           <a href="./index.php"><button><i class="fa fa-arrow-left"></i></button></a>
-          <a href="login.php"><button>Logout</button></a>
+          <form action="./logout.php" method="post" id="logoutForm"></form>
+          <a href="#" onclick="document.getElementById('logoutForm').submit()"><button>Logout</button></a>
         </div>
       </header>
       <section class="content">

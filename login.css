@@ -64,3 +64,14 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.alert {
+  padding: 10px;
+  background-color: gray;
+  border-radius: 5px;
+  color: white;
+}
+
+.alert-danger {
+  background-color: red;
+}

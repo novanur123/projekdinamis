@@ -107,7 +107,9 @@ body {
   padding: 20px;
   margin: 15px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 9px 11px 17px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 9px 11px 17px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 11px 17px 1px rgba(0, 0, 0, 0.75);
   flex: 1;
   min-width: 200px;
 }
