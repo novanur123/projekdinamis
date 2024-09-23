@@ -1,3 +1,13 @@
+<?php
+require_once "libs/session.php";
+require_once "koneksi.php";
+
+$user_count = $db->query('SELECT COUNT(id) FROM login')->fetch_array();
+$food_count = $db->query('SELECT COUNT(id) FROM jenismakanan')->fetch_array();
+
+ceklogin();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,18 +42,19 @@
         <h1>Welcome to the Dashboard</h1>
         <div class="user-info">
           <span>User: @nova_24</span>
-          <a href="login.php"><button>Logout</button></a>
+          <form action="./logout.php" method="post" id="logoutForm"></form>
+          <a href="#" onclick="document.getElementById('logoutForm').submit()"><button>Logout</button></a>
         </div>
       </header>
       <section class="content">
 
         <div class="card">
           <h3>Pengguna</h3>
-          <p>1</p>
+          <p><?= $user_count[0] ?></p>
         </div>
         <div class="card">
           <h3>Makanan</h3>
-          <p>15</p>
+          <p><?= $food_count[0] ?></p>
         </div>
       </section>
       <h1>Makanan Khas Sunda</h1>
